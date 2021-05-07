@@ -5,10 +5,42 @@
 //------------------------------
 
 // Put the assignment code here
-
 class Quaternion {
-};
+  public:
+  Quaternion(double a, double b, double c, double d){
+    this->a = a;
+    this->b = b;
+    this->c = c;
+    this->d = d;
+  }
 
+  bool operator==(const Quaternion& other) const {
+    bool eq = (a == other.a) && (b == other.b) && (c == other.c) && (d == other.d);
+    return eq;
+  }
+
+  Quaternion operator+(const Quaternion& opp) const {
+    Quaternion res(a + opp.a, b + opp.b, c + opp.c, d + opp.d);
+    return res;
+  }
+
+  Quaternion operator-(const Quaternion& opp) const {
+    Quaternion res(a - opp.a, b - opp.b, c - opp.c, d - opp.d);
+    return res;
+  }
+
+  Quaternion operator*(const double& op) const {
+    Quaternion res(a*op, b*op, c*op, d*op);
+    return res;
+  }
+
+  private:
+  double a;
+  double b;
+  double c;
+  double d; 
+};
+double a;
 //------------------------------
 //   DO NOT MODIFY TEST CASES
 //------------------------------
